@@ -2,6 +2,11 @@ FactoryBot.define do
   factory :post do
     title { "MyString" }
     body { "MyText" }
-    author_ip { "MyString" }
+    username { "David"}
+    ip { "MyString" }
+  end
+
+  factory :invalid_post, class: Post do
+    body { "MyText" }
   end
 end

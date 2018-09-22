@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'responders'
+gem "interactor", "~> 3.0"
 
 
 # Reduces boot times through caching; required in config/boot.rb
