@@ -8,14 +8,5 @@ module Posts
     def call
 
     end
-
-
-    private
-
-
-    def validate_params
-
-    end
-
   end
 end

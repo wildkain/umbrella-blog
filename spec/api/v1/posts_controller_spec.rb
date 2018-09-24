@@ -3,7 +3,11 @@ require 'rails_helper'
 describe 'Posts API' do
 
   describe "POST #create" do
-    let!(:valid_params) { { action: :create, format: :json, post: attributes_for(:post)} }
+    let(:user){ create(:user) }
+    let!(:valid_params) do
+      { action: :create, format: :json,
+        post: attributes_for(:post).merge!(username: user.username)}
+    end
     let(:invalid_params) {{ action: :create, format: :json, post:{ body: "body", title: nil, username: nil} }}
 
     context "with valid attributes" do

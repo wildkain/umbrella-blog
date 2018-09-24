@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :post do
     title { "MyString" }
     body { "MyText" }
-    username { "David"}
+    user
     ip { "MyString" }
   end
 

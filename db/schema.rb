@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_09_21_065446) do
 
   create_table "rates", force: :cascade do |t|
     t.bigint "post_id"
+    t.integer "rate", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_rates_on_post_id"

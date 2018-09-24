@@ -5,7 +5,7 @@ class Api::V1::PostsController < ApplicationController
 
     result = Posts::Handler.call(post_params)
 
-     if result.success? && result.post.save
+     if result.success?
        render json: result.post
      else
       render status: :unprocessable_entity, message: "#{result.error}"
