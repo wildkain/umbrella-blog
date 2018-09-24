@@ -6,7 +6,8 @@ module Rates
       rate = @post.rates.build(rate: context.rate)
       begin
         if rate.save
-          context.rating = updated_rating
+          update_rating!
+          context.rating = @post.rating
         else
           context.fail!
         end
@@ -15,8 +16,9 @@ module Rates
       end
     end
 
-    def updated_rating
-      @post.rating
+    def update_rating!
+      @rating = Rate.where(post: @post).average(:rate)
+      @post.update(rating: @rating.round(2))
     end
   end
 end
