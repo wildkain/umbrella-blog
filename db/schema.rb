@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_093029) do
+ActiveRecord::Schema.define(version: 2018_09_25_091606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2018_09_24_093029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "rating", default: 0.0
+    t.bigint "user_ip_id"
     t.index ["ip"], name: "index_posts_on_ip"
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_ip_id"], name: "index_posts_on_user_ip_id"
   end
 
   create_table "rates", force: :cascade do |t|
@@ -33,6 +35,12 @@ ActiveRecord::Schema.define(version: 2018_09_24_093029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_rates_on_post_id"
+  end
+
+  create_table "user_ips", force: :cascade do |t|
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
