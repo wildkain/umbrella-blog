@@ -12,8 +12,8 @@ gem 'puma', '~> 3.11'
 gem 'responders'
 gem "interactor", "~> 3.0"
 gem 'active_model_serializers'
-
-
+gem 'ipaddress', require: false
+gem "rails_ip_validator"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

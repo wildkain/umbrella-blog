@@ -18,13 +18,11 @@ ActiveRecord::Schema.define(version: 2018_09_25_091606) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.string "ip", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "rating", default: 0.0
     t.bigint "user_ip_id"
-    t.index ["ip"], name: "index_posts_on_ip"
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index ["user_ip_id"], name: "index_posts_on_user_ip_id"
   end

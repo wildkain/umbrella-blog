@@ -3,7 +3,8 @@ module Posts
   include Interactor
   include ActiveModel::Validations
 
-  validates_presence_of :title, :body, :username, :ip
+  validates_presence_of :title, :body, :username
+  validates :ip, ip: true
 
     def call
 

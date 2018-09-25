@@ -70,6 +70,7 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     interactor (3.1.1)
+    ipaddress (0.8.3)
     json_spec (1.1.5)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
@@ -122,6 +123,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails_ip_validator (0.1.2)
+      activemodel (>= 3.0.0)
     railties (5.2.1)
       actionpack (= 5.2.1)
       activesupport (= 5.2.1)
@@ -189,12 +192,14 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   interactor (~> 3.0)
+  ipaddress
   json_spec
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.1)
   rails-controller-testing
+  rails_ip_validator
   responders
   rspec-rails
   shoulda-matchers

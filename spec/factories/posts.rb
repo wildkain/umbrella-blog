@@ -3,7 +3,7 @@ FactoryBot.define do
     title { "MyString" }
     body { "MyText" }
     user
-    ip { "MyString" }
+    user_ip
   end
 
   factory :invalid_post, class: Post do

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Posts::Create do
   let!(:user) { create(:user, username: "David") }
-  let!(:params) { { post: attributes_for(:post).merge!(user: user)} }
+  let!(:user_ip) {create :user_ip}
+  let!(:params) { { post: attributes_for(:post).merge!(user: user, ip: user_ip)} }
   let!(:invalid_params) { { post: attributes_for(:invalid_post).merge!(user: user) }}
 
   context "with VALID params" do

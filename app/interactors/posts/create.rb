@@ -4,7 +4,7 @@ module Posts
 
     def call
       user = context.user
-      post = user.posts.build(title: context.title, body: context.body, user_id: user.id, ip: context.ip)
+      post = user.posts.build(title: context.title, body: context.body, user_ip: context.ip)
       begin
         if post.save
           context.post = post

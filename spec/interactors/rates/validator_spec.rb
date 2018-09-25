@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Rates::Validator do
   let!(:user) { create :user}
-  let!(:post){ create(:post, user: user) }
+  let!(:user_ip) {create :user_ip}
+  let!(:post){ create(:post, user: user, user_ip: user_ip) }
   let!(:params) { { rate: 5, post: post } }
   let!(:invalid_params){ { rate: nil, post: post } }
 
