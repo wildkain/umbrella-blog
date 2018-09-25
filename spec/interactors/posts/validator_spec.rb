@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Posts::Validator do
-  let!(:valid_params) { attributes_for(:post) }
+  let!(:valid_params) { attributes_for(:post).merge!(username: "David") }
   let!(:invalid_params){ attributes_for(:invalid_post) }
 
   context "with valid stack of attributes" do

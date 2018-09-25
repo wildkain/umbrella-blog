@@ -1,8 +1,6 @@
 class Api::V1::PostsController < ApplicationController
 
   def create
-   # user = User.find_or_create_by(username: params[:post][:username])
-
     result = Posts::Handler.call(post_params)
 
      if result.success?
@@ -12,14 +10,18 @@ class Api::V1::PostsController < ApplicationController
      end
   end
 
+  def top
+    @posts = Post.top(params[:quantity].to_i)
+    render json: @posts, each_serializer: PostCollectionSerializer
+  end
 
   private
 
   def validate_params
     puts params
   end
+
   def post_params
     params.require(:post).permit(:title, :body, :username, :ip)
   end
-
 end
