@@ -18,7 +18,9 @@ module Rates
 
     def update_rating!
       @rating = Rate.where(post: @post).average(:rate)
-      @post.update(rating: @rating.round(2))
+      @post.transaction do
+        @post.update(rating: @rating.round(2, :up))
+      end
     end
   end
 end

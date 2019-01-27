@@ -17,10 +17,6 @@ class Api::V1::PostsController < ApplicationController
 
   private
 
-  def validate_params
-    puts params
-  end
-
   def post_params
     params.require(:post).permit(:title, :body, :username, :ip)
   end

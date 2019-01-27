@@ -9,6 +9,5 @@ module Rates
     def call
 
     end
-
   end
 end
