@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :user_ip do
-    ip { "127.0.0.1" }
+    ip { Faker::Internet.ip_v4_address }
   end
 end
