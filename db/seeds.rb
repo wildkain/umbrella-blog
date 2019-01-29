@@ -5,11 +5,12 @@ require 'faker'
   Posts::UserFinder.call(username: Faker::Internet.username)
 end
 
+# create IPs
 50.times do
   Posts::IpSaver.call(ip: Faker::Internet.ip_v4_address)
 end
 
-
+#create post
 200000.times do
   Posts::Handler.call(title: Faker::Lorem.sentence(10),
                       body:  Faker::Lorem.sentence(100),
