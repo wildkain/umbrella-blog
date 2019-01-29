@@ -5,6 +5,10 @@ class PostSerializer < ActiveModel::Serializer
     object.user.username
   end
 
+  def ip
+    object.user_ip.ip
+  end
+
   def date
     object.created_at.strftime("%Y-%m-%d %H:%m")
   end
