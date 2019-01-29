@@ -3,8 +3,8 @@ module Posts
     include Interactor
 
     def call
-      ip = UserIp.new(ip: context.ip)
-      if ip.save
+      ip = UserIp.find_or_create_by(ip: context.ip)
+      if ip
         context.ip = ip
       else
         context.fail!
