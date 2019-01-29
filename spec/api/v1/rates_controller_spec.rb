@@ -19,6 +19,7 @@ describe 'Rates API' do
       end
 
       it "returns a valid response with rating and post_id" do
+        some_post.reload
         expect(response.body).to be_json_eql({post: some_post.id, rating: some_post.rating }.to_json)
       end
     end
