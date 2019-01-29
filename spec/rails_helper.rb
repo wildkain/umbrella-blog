@@ -27,6 +27,10 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  config.include FactoryBot::Syntax::Methods
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -35,6 +39,19 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Config for clean database
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.before(:each) do
+    DatabaseCleaner.strategy = :deletion
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
