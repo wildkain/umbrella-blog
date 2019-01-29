@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         get :top, on: :collection
       end
       resources :rates, only: :create
+      resources :ips, only: :index
     end
   end
 end
