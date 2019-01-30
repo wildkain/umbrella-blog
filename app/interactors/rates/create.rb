@@ -17,8 +17,13 @@ module Rates
     end
 
     def update_rating!
-      @rating = Rate.where(post: @post).average(:rate)
-      @post.transaction do
+      @rating = @post.rates.average(:rate)
+      #@post.transaction do
+      #end
+      begin
+        @post.update(rating: @rating.round(2, :up))
+      rescue ActiveRecord::StaleObjectError
+        @post.reload
         @post.update(rating: @rating.round(2, :up))
       end
     end
